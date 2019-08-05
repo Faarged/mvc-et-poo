@@ -1,10 +1,10 @@
 <?php
-    include_once 'CrudController.php';
+    include_once '../controller/CrudController.php';
     $crudcontroller = new CrudController();
     switch($_POST["type"]) {
-    
+
         case "single":
-            
+
             if(isset($_POST["id"])) {
                 $result = $crudcontroller->readSingle($_POST["id"]);
                 if(!empty($result)) {
@@ -18,9 +18,9 @@
             break;
         case "all":
             $result = $crudcontroller->readData();
-            require_once "list.php";
+            require_once "mvc/view/list.php";
             break;
-            
+
         default:
             break;
     }

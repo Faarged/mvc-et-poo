@@ -1,6 +1,6 @@
 <?php
 
-class Connexion
+class Dao
 {
 
     private $server = "mysql:host=localhost;dbname=exopoo";

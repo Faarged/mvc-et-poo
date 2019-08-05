@@ -1,9 +1,9 @@
 <?php
 if (isset($_POST["add"])) {
-    include_once 'CrudController.php';
+    include_once '../controller/CrudController.php';
     $crudcontroller = new CrudController();
     $result = $crudcontroller->add($_POST);
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 ?>
 <html>
@@ -14,8 +14,8 @@ if (isset($_POST["add"])) {
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script
     src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="styles.css">
-<script src="crudEvent.js"></script>
+<link rel="stylesheet" type="text/css" href="../public/styles.css">
+<script src="../public/crudEvent.js"></script>
 
 </head>
 <body>

@@ -10,9 +10,9 @@ if (! empty($result)) {
     <div class="category"><?php echo $result[$k]["category"]; ?></div>
     <div class="action">
         <button class="btn-action bn-edit"
-            id="<?php echo $result[$k]["id"]; ?>">Modifier</button>
+            id="<?php echo $result[$k]["id"]; ?>">Edit</button>
         <button class="btn-action bn-delete"
-            id="<?php echo $result[$k]["id"]; ?>">Supprimer</button>
+            id="<?php echo $result[$k]["id"]; ?>">Delete</button>
     </div>
 </div>
 <?php

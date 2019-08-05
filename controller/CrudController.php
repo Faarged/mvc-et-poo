@@ -1,5 +1,5 @@
 <?php
-include_once 'Connexion.php';
+include_once 'Dao.php';
 
 class CrudController
 {
@@ -9,9 +9,9 @@ class CrudController
     {
         try {
 
-            $connexion = new Connexion();
+            $dao = new Dao();
 
-            $conn = $connexion->openConnection();
+            $conn = $dao->openConnection();
 
             $sql = "SELECT id,title,description, url, category FROM `tb_links` ORDER BY id DESC";
 
@@ -19,7 +19,7 @@ class CrudController
 
             $result = $resource->fetchAll(PDO::FETCH_ASSOC);
 
-            $connexion->closeConnection();
+            $dao->closeConnection();
         } catch (PDOException $e) {
 
             echo "There is some problem in connection: " . $e->getMessage();
@@ -34,9 +34,9 @@ class CrudController
     {
         try {
 
-            $connexion = new Connexion();
+            $dao = new Dao();
 
-            $conn = $connexion->openConnection();
+            $conn = $dao->openConnection();
 
             $sql = "SELECT id,title,description, url, category FROM `tb_links` WHERE id=" . $id . " ORDER BY id DESC";
 
@@ -44,7 +44,7 @@ class CrudController
 
             $result = $resource->fetchAll(PDO::FETCH_ASSOC);
 
-            $connexion->closeConnection();
+            $dao->closeConnection();
         } catch (PDOException $e) {
 
             echo "There is some problem in connection: " . $e->getMessage();
@@ -62,13 +62,13 @@ class CrudController
         $url = $_POST['url'];
         $category = $_POST['category'];
 
-        $connexion = new Connexion();
+        $dao = new Dao();
 
-        $conn = $connexion->openConnection();
+        $conn = $dao->openConnection();
 
         $sql = "INSERT INTO `tb_links`(`title`, `description`, `url`, `category`) VALUES ('" . $title . "','" . $description . "','" . $url . "','" . $category . "')";
         $conn->query($sql);
-        $connexion->closeConnection();
+        $dao->closeConnection();
     }
 
     /* Edit a Record */
@@ -80,27 +80,27 @@ class CrudController
         $url = $_POST['url'];
         $category = $_POST['category'];
 
-        $connexion = new Connexion();
+        $dao = new Dao();
 
-        $conn = $connexion->openConnection();
+        $conn = $dao->openConnection();
 
         $sql = "UPDATE tb_links SET title = '" . $title . "' , description='" . $description . "', url='" . $url . "', category='" . $category . "' WHERE id=" . $id;
 
         $conn->query($sql);
-        $connexion->closeConnection();
+        $dao->closeConnection();
     }
 
     /* Delete a Record */
     public function delete($id)
     {
-        $connexion = new Connexion();
+        $dao = new Dao();
 
-        $conn = $connexion->openConnection();
+        $conn = $dao->openConnection();
 
         $sql = "DELETE FROM `tb_links` where id='$id'";
 
         $conn->query($sql);
-        $connexion->closeConnection();
+        $dao->closeConnection();
     }
 }
 

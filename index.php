@@ -1,5 +1,5 @@
 <?php
-include_once 'CrudController.php';
+include_once 'controller/CrudController.php';
 $crudcontroller = new CrudController();
 $result = $crudcontroller->readData();
 ?>
@@ -9,21 +9,19 @@ $result = $crudcontroller->readData();
 <title>CRUD</title>
 <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="styles.css">
-<script src="crudEvent.js"></script>
+
+<link rel="stylesheet" type="text/css" href="public/styles.css">
+
 
 </head>
 <body>
 
     <div class="row">
-        <a href="add.php"><button class="btn btn-primary btn-add">Add New Record</button></a>
+        <a href="modele/add.php"><button class="btn btn-primary btn-add">Add New Record</button></a>
     </div>
 
     <div class="row" id="container">
-    <?php require_once "list.php" ?>
+    <?php require_once "view/list.php" ?>
     </div>
 
 
@@ -120,5 +118,11 @@ $result = $crudcontroller->readData();
         </div>
     </div>
     <!-- Modal ends here -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="public/crudEvent.js"></script>
+
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </body>
 </html>
